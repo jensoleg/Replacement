@@ -1,0 +1,811 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <!--link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"-->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <!--link rel="stylesheet" href="styles/responsive.css"-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/clientlib.css" type="text/css"/>
+    <!--link rel="stylesheet" href="styles/main.css"-->
+    <!-- endbuild -->
+</head>
+<body>
+
+<!---  BODY    -->
+
+<body class="sf2">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="sf2">
+                <div id="breadcrumbs">
+                    <div id="breadcrumb_back" onclick="history.go(-1)"></div>
+                    <div class="breadcrumbs_pane">
+                        <div id="breadcrumb_home" onclick="action.home()"></div>
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="sf2">
+                <div class="par parsys">
+                    <div class="replacement page global section">
+                        <div id="replacement">
+                            <ul id="replacement_tabs" class="nav nav-tabs" data-tabs="tabs">
+                                <li id="replacement_quick_search_tab" class='active'><a href='#quick_search_content'
+                                                                                        data-toggle='tab'>Quick
+                                    search</a></li>
+                                <li id="replacement_classic_search_tab"><a href='#classic_search_content'
+                                                                           data-toggle='tab'>Classic search</a></li>
+                            </ul>
+                            <div id="replacement_tab_content" class="tab-content">
+                                <div id="quick_search_content" class="tab-pane active">
+                                    <div class="panel-title"><h5>Select the product you want to replace</h5></div>
+                                    <div class="row">
+                                        <div class="panel-description col-md-5">
+                                            This field will help finding the product you want to replace. Please note -
+                                            the system currently contains information about circulation pumps. For
+                                            searches for other products please contact lorem ipsum dolor iactetur.
+                                        </div>
+                                        <div id="replacement_quick_search" class="panel-search col-md-5">
+                                            <input type="text" id="replacement_quick_search_input" autocomplete="off"
+                                                   class="form-control big-search"/>
+
+                                            <div id="replacement_suggestSelect" style="display: none"></div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button id="replacement_quick_search_button"
+                                                    class="btn btn-primary btn-block big-search"
+                                                    value="select this pump to replace">search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="classic_search_content" class="tab-pane">
+                                    <div class="panel-title"><h5>Select the product you want to replace</h5></div>
+                                    <div class="classic-panel-description">
+                                        Start by selecting the manufacturer of the pump, you want to replace. Then fill
+                                        in the other information.
+                                    </div>
+                                    <div id="replacement_classic_search_old_pump" class="panel-search">
+                                        <h3></h3>
+
+                                        <div class="questions"></div>
+                                    </div>
+                                    <div id="replacement_classic_search" class="panel-search"></div>
+                                    <div id="replacement_classic_search_button_div">
+                                        <button id="replacement_classic_search_button"
+                                                class="btn btn-primary classic-search"
+                                                value="select this pump to replace">search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sf2">
+                <div id="breadcrumbs">
+                    <h1>dsdsdsds</h1>
+                    <!--div id="breadcrumb_back" onclick="history.go(-1)"></div>
+                    <div class="breadcrumbs_pane">
+                        <div id="breadcrumb_home" onclick="action.home()"></div>
+                        <ul></ul>
+                    </div-->
+                </div>
+            </div>
+            <div class="row margin-bottom">
+                <div class="col-md-12">
+                    <div class="action-bar">
+                        <!--div class="actions">
+                            <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/sizing.html?wcmmode=disabled&amp;state=sizing_result&amp;qcid=61679#">Save sizing parameters</a>
+                            <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/sizing.html?wcmmode=disabled&amp;state=sizing_result&amp;qcid=61679#">Load sizing parameters</a>
+                        </div-->
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom">
+                <div id="search-filters" class=""></div>
+                <div id="search-results-table" class="col-md-12">
+                    <script type="text/javascript">
+                        var designPath = "/etc/designs/grundfos/internet";
+                        var iconClientlibPath = "/etc/designs/icon";
+                        var iconPath = "/apps/grundfos/icon";
+                        var currentPagePath = "/content/sol/en/products/sizing";
+                        var resourcePath = "/content/sol/en/products/sizing/jcr:content/par/sizing";
+                        var restserver = "http://dkwebsers.emea.group.grundfos.com/restserver/"
+                    </script>
+
+                    <div class="search-result-list">
+                        <div class="search-result-list-header">
+                            <div>all suitable <span id="result-type">products</span> <span id="result-count">(10)</span>
+                                <div class="view_buttons pull-right" style="display: none;">
+                                    <button id="showCurveView" class="btn btn-default">Curves</button>
+                                    <button id="showListView" class="btn btn-primary">List</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-result-list-controls">
+                            <div style="margin-right: 5px">
+                                <div>&nbsp;</div>
+                                <div>
+                                    <label class="checkbox select-all">
+                                        <input type="checkbox" name="search-list-select-all" id="search-list-select-all" value="select-all">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <div>Batch actions:</div>
+                                <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/sizing.html?wcmmode=disabled&amp;state=sizing_result&amp;qcid=61679#" class="btn btn-default">compare products <i class="glyphicon glyphicon-chevron-down"></i></a>
+                            </div>
+                            <div>
+                                <div>Table size:</div>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="search-list-select-filters" id="search-list-full-width" value="filters">
+                                    <span></span>
+                                    Show full width
+                                </label>
+                            </div>
+                            <div>
+                                <div>Sorting:</div>
+                                <select name="sorting" id="sorting" class="form-control input-medium">sort by<option value="#SYSTEM">System</option><option value="PRODNO">Product No</option><option value="PRODNAME">Product name</option><option value="rStrV">Energy [kWh/a]</option><option value="_rStrK">Energy costs [€ /a]</option><option value="rLCC">Life cycle cost [€]</option><option value="reta1">Eta pump+motor [%]</option><option value="rFSTR">Q [m³/h]</option><option value="FlowDeviation">Q-dev [%]</option><option value="_FHOE">H [m]</option><option value="HeadDeviation">H-dev [%]</option></select>
+                            </div>
+                        </div>
+
+                        <div class="search-result-list-table"><table class="table table-lined table-striped"><tbody><tr><th data-label="checkboxes"></th><th data-label="glyphicon"></th><th data-label="#SYSTEM" class="clickable">System</th><th data-label="PRODNO" class="clickable left-align">Product No</th><th data-label="PRODNAME" class="clickable left-align">Product name</th><th data-label="rStrV" class="clickable">Energy [kWh/a]</th><th data-label="_rStrK" class="clickable">Energy costs [€ /a]</th><th data-label="rLCC" class="clickable">Life cycle cost [€]</th><th data-label="reta1" class="clickable">Eta pump+motor [%]</th><th data-label="rFSTR" class="clickable">Q [m³/h]</th><th data-label="FlowDeviation" class="clickable">Q-dev [%]</th><th data-label="_FHOE" class="clickable">H [m]</th><th data-label="HeadDeviation" class="clickable">H-dev [%]</th></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NK 40-160/169</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3786</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">567.87</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19097</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">60.5</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NKG 65-50-160/169</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3786</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">567.87</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19097</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">60.5</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request" class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="left-align">On request</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="no-wrap left-align">NKE 40-125/136</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">3675</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">551.27</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">19566</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">67.4</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request" class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="left-align">On request</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="no-wrap left-align">NKGE 65-50-125/136</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">3675</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">551.27</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">19704</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">67.4</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request" class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="left-align">On request</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="no-wrap left-align">NKE 32-125/120</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">3758</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">563.75</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">19793</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">52.7</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request" class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="left-align">On request</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')" class="no-wrap left-align">NKGE 50-32-125/120</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">3758</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">563.75</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">19793</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">52.7</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NK 50-200/219</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3945</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">591.82</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19823</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">63.2</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NKG 80-50-200/219</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3945</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">591.82</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19823</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">63.2</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NK 40-200/217</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3964</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">594.56</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19884</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">55.0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">9.99</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NKG 65-40-200/217</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">3964</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">594.56</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">19884</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">55.0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">9.99</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr><tr><td style="padding: 0px 0px 0px 20px;"><label class="checkbox" style="padding: 0px;"><input type="checkbox"><span></span></label></td><td data-product-number="On request + .." class="curve-td"><img src="./tabel_files/loading.gif" class="curve-popover" style="height: 28px; max-width: none;"></td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">X</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="left-align">On request + ..</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')" class="no-wrap left-align">NK 40-125/131</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">4430</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">664.45</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">21135</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">55.3</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">30</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">10</td><td style="cursor: pointer;" onclick="action.detail('productnumber=On request + ..')">0</td></tr></tbody></table></div>
+
+                        <div class="loading" style="display: none;"></div>
+                    </div></div>
+            </div>
+            <div class="sf2 detail">
+            <div class="par parsys"><div class="page global product_detail section"><script type="text/javascript">
+                var designPath = "/etc/designs/grundfos/internet";
+                var iconClientlibPath = "/etc/designs/icon";
+                var iconPath = "/apps/grundfos/icon";
+                var currentPagePath = "/content/sol/en/products/product-detail";
+                var resourcePath = "/content/sol/en/products/product-detail/jcr:content/par/product_detail";
+
+                var cookieExpiresDays = 30;
+                var loggedIn = (('false'))==="false"?false:true;    //get the isLoggedIn attribute from the request
+
+                var restserver = "http://dkwebsers.emea.group.grundfos.com/restserver/"
+                log("restserver=" + restserver);
+
+                var putRecentProductEndpoint = '.userdata.recentitems.products.put.json';
+
+                var productnumber = "98389659";
+                if(productnumber == "null") productnumber = false;
+                log("productnumber=" + productnumber);
+
+                var pumpsystemid = "null";
+                log("pumpsystemid=" + pumpsystemid);
+
+                var product = (opener && opener.guidedsearch ? opener.guidedsearch.product : null);
+
+                if(product && product.productnumber == productnumber) log("Found product from opener.guidedsearch.product");
+                else{
+                    product = null;
+
+                    data = (productnumber ? {productnumber: productnumber} : {pumpsystemid: pumpsystemid});
+                    (function ($) {
+                        $.ajax({
+                            url: resourcePath + ".product.product.json",
+                            data: data,
+                            dataType: 'json',
+                            type: "GET",
+                            success: function(result){
+                                if(result.error) alert(result.error);
+                                else product = result;
+                            },
+                            error: $(document).handleError,
+                            async: false
+                        });
+                    })(jQuery_1_8_1);
+                }
+                log(product);
+
+                var pumpsystemid = product.pumpsystemid;
+
+                var productfamilycode = product.productgroups[0].code;
+                log("productfamilycode=" + productfamilycode);
+
+                states.set(states.detail);
+
+                function storeRecentProductInCookie() {
+                    var recentProducts = [];
+                    var productname = product.name;
+                    var itemdate = new Date();
+                    var baseitemurl = window.location.href;
+                    var recentProductToStore = {"row_index": '', "item_id": pumpsystemid, "item_text": productname, "item_date": itemdate, "base_item_url": baseitemurl};
+
+                    //read current cookies to array
+                    for(var i = 0; i < 10; i++){
+                        var recentProduct = $.cookie('recentProduct' + i);
+                        if(recentProduct && recentProduct != 'null'){
+                            var p = JSON.parse(recentProduct);
+                            if(p.item_id && p.item_id!= pumpsystemid) recentProducts.push(recentProduct);
+                        }
+                    }
+                    $.cookie('recentProduct0', JSON.stringify(recentProductToStore), { expires: cookieExpiresDays });
+                    for(var i = 1; i < 10; i++){
+                        $.cookie('recentProduct' + i, (recentProducts.length > 0 ? recentProducts.shift() : null), { expires: cookieExpiresDays });
+                    }
+                }
+
+                function storeRecentProductRestService() {
+                    var url = resourcePath + putRecentProductEndpoint;
+                    log('url: '+url);
+                    $.ajax({
+                        url: url,
+                        data: {pumpsystemid : pumpsystemid},
+                        dataType: 'json',
+                        type: "GET",
+                        success: function(result){
+                            log("in success\ndata: "+result);
+                            if(result!=null) {
+                                if(result.error) alert(result.error);
+                            }
+                        },
+                        error: $(document).handleError,
+                        //				error: function(jqXHR, status, text){     //this "error" is for debugging
+                        //					log("STACK: "+text.stack);
+                        //					debugger;
+                        //				},
+                        async: true
+                    });
+                }
+
+                $( document ).ready(function() {
+                    if (loggedIn) {
+                        //User is logged in. Store RecentProducts for that user by using GPI UserData - recentProducts PUT
+                        storeRecentProductRestService();
+                    } else {
+                        //User is NOT logged in. Store RecentProducts for that user by using cookie functionality
+                        storeRecentProductInCookie();
+                    }
+                });
+
+            </script>
+
+            <div class="sf2 detail">
+            <h1 id="product-details-title">Hydro MPC-E 2 CRE32-1-1 - product no: 98389659</h1>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div id="top-section" class="row">
+                            <div id="message-box">
+                                &nbsp;
+                            </div>
+                            <div class="box-actions col-md-4 col-md-push-8">
+                                <div class="btn-group">
+                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#">
+                                        ADD TO...
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#">Add to project</a></li>
+                                        <li><a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#">Add to comparison</a></li>
+                                    </ul>
+                                    <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#" class="btn btn-primary">print / pdf</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><div id="images" class="panes">
+                <div id="pumpcurve" class="thumb selected">Performance curve</div>
+                <div id="image" class="thumb">Product photo</div>
+                <div id="dimensionaldrawing" class="thumb">Dimensional drawing</div>
+                <div id="motorcurve" class="thumb disabled">Motor curve</div>
+                <div id="electricaldiagram" class="thumb">Wiring diagram</div>
+                <div id="exploded_view" class="thumb disabled">Spare parts</div>
+                <div id="cad" class="thumb disabled">3D</div>
+
+                <div id="graphicContent">
+                    <div id="messageDiv" style="display: none;">Loading..</div>
+
+                    <div id="zoomPanel" style="display: none;">
+                        <a id="zoomAllButton" title="Zoom all (0)" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#"><i class="glyph glyphicon-picture"></i></a>
+                        <a id="zoomInButton" title="Zoom in (+)" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#"><i class="glyph glyphicon-zoom-in"></i></a>
+                        <a id="zoomOutButton" title="Zoom out (-)" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#"><i class="glyph glyphicon-zoom-out"></i></a>
+                        <a id="selectAreaButton" title="Select area (s)" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#"><i class="glyph glyphicon-edit"></i></a>
+                    </div>
+
+                    <i id="enlarge" class="glyphicon glyphicon-fullscreen" rel="#imageoverlay" style="right: 270px;"></i>
+
+                    <div id="imageContainer">
+                        <img id="large_image" alt="" src="./product_files/product_detail.pumpcurve.png" title="Click to insert duty point" class="pumpcurve" style="width: 574px; height: 622px;">
+                    </div>
+
+                    <div id="cadContainer" style="display: none;">
+                        <div id="cadControls">
+                            <label><i id="btnZoomIn" value="Zoom in" class="glyphicon glyphicon-zoom-in" autocomplete="off"></i></label>
+                            <label><i id="btnZoomOut" class="glyphicon glyphicon-zoom-out"></i></label>
+                            <label><i id="btnSelectArea" class="glyphicon glyphicon-edit"></i></label>
+                            <label><i id="btnReset" class="glyphicon glyphicon-refresh"></i></label>
+                            <h3>Show</h3>
+                            <label><input type="radio" name="RenderMode" value="3D"> 3D</label>
+                            <label><input type="radio" name="RenderMode" value="TOP"> Top</label>
+                            <label><input type="radio" name="RenderMode" value="LEFT"> Left</label>
+                            <label><input type="radio" name="RenderMode" value="FRONT"> Front</label>
+                            <label><input type="radio" name="RenderMode" value="RIGHT"> Right</label>
+                            <label><input type="radio" name="RenderMode" value="BOTTOM"> Bottom</label>
+                            <label><input type="radio" name="RenderMode" value="BACK"> Back</label>
+                            <br>
+                            <a id="openCadDrawings" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#caddrawings">Download CAD drawings</a>
+                        </div>
+
+                        <div id="cadViewer">
+                            <div id="viewerContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overlay_white" id="imageoverlay"><div class="close"></div></div>
+
+                <div class="servicedetails" id="servicedetails" style="display: none;">
+                    <div id="servicedetailsDiv">
+
+                        <div id="partPane" class="pane">
+                            <div id="serviceParts">
+                                <h3>Service parts</h3>
+                                <ul></ul>
+                            </div>
+                            <div id="partList">
+                                <h3>Part list</h3>
+                                <ul></ul>
+                            </div>
+                            <img class="loading" src="./product_files/loading.gif">
+                            <br><br>
+                            <div id="slideButton" class="slideback"></div>
+                        </div>
+
+                        <div id="treePane" class="pane">
+
+                            <h4 id="partlisttype">&nbsp;</h4>
+                            <a href="javascript:tree.collapseAll();">Collapse</a>
+                            <a href="javascript:tree.expandAll();">Expand</a>
+                            <a href="javascript:clearSelection();">Clear</a>
+
+                            <div id="content">
+                                <div id="tree" class="border">
+                                    <div id="root"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="drawingPane" class="pane">
+                            <h4 id="partlistmodel"></h4>
+                            <select id="drawingSelect" name="drawingSelect"></select>
+
+                            <div id="serviceMessageDiv">&nbsp;</div>
+                            <div id="coverAll" style="width: 100%"></div>
+
+                            <div id="drawingDiv">
+                                <img id="drawing" name="drawing" class="border" src="./product_files/transparent.gif">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div id="curve_settings_pane" style="display: block;">
+                    <h2>Curve settings</h2>
+
+                    <div id="curveSettingsContainer">
+                        <div id="curve_settings"></div>
+
+                        <a id="showAdvancedOptions" href="javascript:void(0)" rel="#imageoverlay">Show advanced options</a>
+                        <a id="resetCurveSettings" href="javascript:void(0)">Reset to default values</a>
+
+                        <div class="right">
+                            <button type="button" class="btn btn-primary ok">Ok</button>
+                            <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center">
+                    <div class="modal fade" id="curveSettingsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h3 class="modal-title" id="myModalLabel">Modal title</h3>
+                                </div>
+                                <div class="modal-body"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="ok">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    curvesettings.init();
+                </script>
+            </div>
+
+            <script type="text/javascript">
+                var flow = "";
+                var head = "";
+
+                images.init();
+            </script>
+            <div id="resources">
+            <div>
+                <ul class="tabs">
+                    <li id="productdataTab"><a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#productdataPane" class="current">Specifications</a></li>
+                    <li id="quotationtextTab"><a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#quotationtextPane" class="">Quotation text</a></li>
+                    <li id="videosTab"><a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#videosPane" class="">Videos (<span id="video-count">0</span>)</a></li>
+                    <li id="documentsTab" class="documentsTab disabled">Documents (<span class="document-count">0</span>)</li>
+                    <li id="cadTab" class="disabled">CAD drawings</li>
+                    <li id="systemPartsTab" class="disabled">System parts</li>
+                </ul>
+            </div>
+            <div class="panes">
+            <div class="pane" id="productdataPane" style="display: block;">
+                <div class="heading">
+                    <button id="changeConfiguration" class="btn btn-default" rel="#imageoverlay">Change configuration</button>
+                    <h3>Specifications</h3>
+                    <h3 id="product_name_number">Hydro MPC-E 2 CRE32-1-1 - product number: 98389659</h3>
+                </div>
+                <div class="row"><div id="specifications"><div class="col-sm-6"><table><thead><tr><th colspan="2">null&nbsp;</th></tr></thead><tbody><tr><td>Product name:&nbsp;</td><td>Hydro MPC-E 2 CRE32-1-1</td></tr><tr><td>Product No:&nbsp;</td><td>98389659</td></tr><tr><td>EAN number:&nbsp;</td><td>5710629916235</td></tr><tr><td>Price:&nbsp;</td><td>On request</td></tr></tbody></table><table><thead><tr><th colspan="2">Technical&nbsp;</th></tr></thead><tbody><tr><td>Min flow system:&nbsp;</td><td>4 m³/h</td></tr><tr><td>Max flow:&nbsp;</td><td>96 m³/h</td></tr><tr><td>Max flow system:&nbsp;</td><td>48 m³/h</td></tr><tr><td>Head max:&nbsp;</td><td>21.1 m</td></tr><tr><td>Impellers main:&nbsp;</td><td>1</td></tr><tr><td>Main pump name:&nbsp;</td><td>CRE32-1-1</td></tr><tr><td>Main pump No:&nbsp;</td><td>98390938</td></tr><tr><td>Number of pumps:&nbsp;</td><td>2</td></tr><tr><td>Non-ret. valve:&nbsp;</td><td>at discharge side</td></tr></tbody></table><table><thead><tr><th colspan="2">null&nbsp;</th></tr></thead><tbody></tbody></table><table><thead><tr><th colspan="2">Installation&nbsp;</th></tr></thead><tbody><tr><td>Maximum operating pressure:&nbsp;</td><td>16 bar</td></tr><tr><td>Maximum inlet pressure:&nbsp;</td><td>13.9 bar</td></tr><tr><td>Flange standard:&nbsp;</td><td>DIN</td></tr><tr><td>Manifold inlet:&nbsp;</td><td>DN 100</td></tr><tr><td>Manifold outlet:&nbsp;</td><td>DN 100</td></tr><tr><td>Pressure stage:&nbsp;</td><td>PN 10/16</td></tr></tbody></table><table><thead><tr><th colspan="2">Liquid&nbsp;</th></tr></thead><tbody><tr><td>Pumped liquid:&nbsp;</td><td>Water</td></tr><tr><td>Liquid temperature range:&nbsp;</td><td>5 .. 60 °C</td></tr></tbody></table></div><div class="col-sm-6"><table class="split"><tbody class="split"><tr><td>Liquid temp:&nbsp;</td><td>20 °C</td></tr><tr><td>Density:&nbsp;</td><td>998.2 kg/m³</td></tr></tbody></table><table><thead><tr><th colspan="2">Electrical data&nbsp;</th></tr></thead><tbody><tr><td>Power (P2) main pump:&nbsp;</td><td>2.2 kW</td></tr><tr><td>Mains frequency:&nbsp;</td><td>50 Hz</td></tr><tr><td>Rated voltage:&nbsp;</td><td>3 x  380 - 415 V, 50 - 60 Hz, PE</td></tr><tr><td>Rated voltage main pump:&nbsp;</td><td>3 x 380 V</td></tr><tr><td>Start. method:&nbsp;</td><td>electronically</td></tr><tr><td>Starting main:&nbsp;</td><td>electronically</td></tr><tr><td>Rated current of system:&nbsp;</td><td>7.8 A</td></tr><tr><td>Enclosure class (IEC 34-5):&nbsp;</td><td>IP54</td></tr><tr><td>Mains cable size:&nbsp;</td><td>L1,L2,L3,PE: 4x1.5-2.5 mm2</td></tr><tr><td>Radio interference supression:&nbsp;</td><td>EMC Certificate - Hydro MPC 1 [2007]</td></tr></tbody></table><table><thead><tr><th colspan="2">Controls&nbsp;</th></tr></thead><tbody><tr><td>Control type:&nbsp;</td><td>E</td></tr><tr><td>Speed control:&nbsp;</td><td>Grundfos MGE 3 phase</td></tr></tbody></table><table><thead><tr><th colspan="2">Tank&nbsp;</th></tr></thead><tbody><tr><td>Diaphragm tank:&nbsp;</td><td>No</td></tr></tbody></table><table><thead><tr><th colspan="2">Others&nbsp;</th></tr></thead><tbody><tr><td>Net weight:&nbsp;</td><td>207 kg</td></tr><tr><td>Gross weight:&nbsp;</td><td>327 kg</td></tr><tr><td>Product range:&nbsp;</td><td>International</td></tr><tr><td>Config.file Control MPC:&nbsp;</td><td>98271946</td></tr><tr><td>Config.file Hydro MPC:&nbsp;</td><td>98272018</td></tr><tr><td>Epstan version:&nbsp;</td><td>V5.1347</td></tr></tbody></table></div><br style="clear:both;"></div></div>
+                <div id="markings"></div>
+            </div>
+            <div class="pane" id="quotationtextPane" style="display: none;">
+                <div class="heading">
+                    <h3>Quotation text</h3>
+                </div>
+                <div class="row"><div id="quotationtext"><div class="col-sm-6"><p><b>Hydro MPC-E 2 CRE32-1-1</b></p><p>
+                </p>
+                    <p>Pressure booster system supplied as compact assembly according to DIN standard 1988/T5.<br>
+                    </p>
+                    <p>All pumps are speed-controlled.<br>
+                    </p>
+                    <p>From 0.37 to 2.2 kW, the booster system is equipped with CR, CRE, CRI, CRIE pumps with electronically commutated permanent magnet motors with extremely high efficiency. The total efficiency of the motor including the frequency converter is better than the IE4 level in IEC60034-31, even though this standard only applies to the motor.<br>
+                    </p>
+                    <p>From 3 to 22 kW, the booster system is equipped with CR, CRE, CRI, CRIE pumps with motors with integrated frequency control. The total efficiency of the motor including the frequency converter is better than the IE3 level in IEC60034-31, even though this standard only applies to the motor.<br>
+                    </p>
+                    <p>* Hydro MPC-E maintains a constant pressure through continuous adjustment of the speed of the pumps.<br>
+                        * The system performance is adapted to the demand through cutting in/out the required number of pumps and through parallel control of the pumps in operation.<br>
+                        * Pump changeover is automatic and depends on load, time and fault.<br>
+                    </p>
+                    <p>The system consists of these parts:<br>
+                        :  2 vertical, multistage, centrifugal pumps, type CRE32-1-1<br>
+                        Pump parts in contact with the pumped liquid are made of stainless steel EN DIN 1.4301<br>
+                        Pump bases and heads are of either cast iron/stainless steel (CRI) or cast iron EN-GJS-500-7 (CR), depending on pump type; other vital parts are made of stainless steel EN DIN 1.4301<br>
+                        The pumps are equipped with a service-friendly cartridge shaft seal, HQQE (SiC/SiC/EPDM)<br>
+                        * Two stainless steel manifolds to EN DIN 1.4571<br>
+                        * Stainless steel base frame to EN DIN 1.4301 up to CR 90; above CR 90 the pumps are placed on a galvanized I-Beam frame<br>
+                        * One non-return valve (POM) and two isolating valves for each pump <br>
+                        * Non-return valves are certified according to DVGW, isolating valves according to DIN and DVGW <br>
+                        * Adapter with isolating valve for connection of diaphragm tank <br>
+                        * Pressure gauge and pressure transmitter (analog output 4-20 mA)<br>
+                        * Control MPC in a steel cabinet, IP54, including main switch, all required fuses, motor protection, switching equipment and microprocessor-controlled CU 352. <br>
+                    </p>
+                    <p>Dry-running protection and diaphragm tank are available according to the list of accessories.<br>
+                    </p>
+                    <p>Pump operation is controlled by Control MPC with the following functions:<br>
+                        * Intelligent multi-pump controller, CU 352<br>
+                        * Constant-pressure control through continuously variable adjustment of the speed of each individual pump<br>
+                        * PID controller with adjustable PI parameters (Kp + Ti) <br>
+                        * Constant pressure at setpoint, independent of inlet pressure<br></p></div><div class="col-sm-6"><p class="split">
+                    * On/off operation at low flow<br>
+                    * Automatic cascade control of pumps for optimum efficiency<br>
+                    * Selection of min. time between start/stop, automatic pump changeover and pump priority<br>
+                    * Automatic pump test function to prevent idle pumps from seizing up<br>
+                    * Possibility of standby pump allocation<br>
+                    * Possibility of backup sensor (redundant primary sensor)<br>
+                    * Manual operation<br>
+                    * Possibility of external setpoint influence <br>
+                    * Log function<br>
+                    * Setpoint ramp<br>
+                    * Possibility of digital remote-control functions:<br>
+                    * system on/off<br>
+                    * max., min. or user-defined duty<br>
+                    * up to 6 alternative setpoints.<br>
+                    * Digital inputs and outputs can be configured individually<br>
+                    * Pump and system monitoring functions:<br>
+                    * minimum and maximum limits of current value<br>
+                    * inlet pressure<br>
+                    * motor protection.<br>
+                    * Sensors and cables monitored for malfunction<br>
+                    * Alarm log with the previous 24 warnings/alarms<br>
+                    * Display and indication functions:<br>
+                    * colour screen display<br>
+                    * green indicator light for operating indications and red indicator light for fault indications<br>
+                    * potential-free changeover contacts for operation and fault.<br>
+                    * Grundfos bus communication.<br>
+                </p>
+                    <p>It is possible to add CIM communication modules for communicating with Scada/BMS. <br>
+                    </p>
+                    <p>Pumps, piping, cabling complete as well as Control MPC are mounted on the base frame.<br>
+                        The booster system has been preset and tested.<br>
+                    </p>
+                    <p></p><table><colgroup valign="top" span="2"></colgroup><tbody>
+                    <tr><td colspan="2"><b>Flow media:	Water</b></td></tr>
+                    <tr><td>Allowed liquid temp.:&nbsp;&nbsp;</td><td>5 °C .. 60 °C</td></tr>
+                    <tr><td>System pressure max.:&nbsp;&nbsp;</td><td>16 bar</td></tr>
+                    <tr><td>Flow (Plant):&nbsp;&nbsp;</td><td>96 m³/h</td></tr>
+                    <tr><td>Flow without one stand-by pump acc. DIN 1988/T5:&nbsp;&nbsp;</td><td>48 m³/h</td></tr>
+                    <tr><td>Mains suply:&nbsp;&nbsp;</td><td> 380 - 415 V, 50 - 60 Hz, PE</td></tr>
+                    <tr><td>Nom. current of plant:&nbsp;&nbsp;</td><td>7.8 A</td></tr>
+                    <tr><td>Number of main pumps:&nbsp;&nbsp;</td><td>2</td></tr>
+                    <tr><td>Nominal power:&nbsp;&nbsp;</td><td>2.2 kW</td></tr>
+                    <tr><td>Starting main:&nbsp;&nbsp;</td><td>electronically</td></tr>
+                    <tr><td>Number of aux. pump(s):&nbsp;&nbsp;</td><td>0</td></tr>
+                    <tr><td>Net weight:&nbsp;&nbsp;</td><td>207 kg</td></tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr><td>&nbsp;</td></tr>
+                    </tbody></table><p></p>
+                </div><br style="clear:both;"></div></div>
+            </div>
+            <div class="pane" id="videosPane" style="display: none;"><script type="text/javascript" src="./product_files/player_api"></script>
+
+                <div>
+                    <div class="heading">
+                        <h3>Videos</h3>
+                        <label id="pause" class="checkbox"><input type="checkbox" id="pauseBetween"><span></span> Pause between clips</label>
+                    </div>
+
+                    <div id="videos"></div>
+                </div>
+
+                <script type="text/javascript">
+                    videos.init();
+                </script>
+            </div>
+            <div class="pane" id="documentsPane" style="display: none;"><div class="documents">
+                <div class="heading">
+                    <h3>Documents</h3>
+                    <label class="selectAll checkbox inline btn btn-default"><input type="checkbox" autocomplete="off"><span></span></label>
+                    <!-- button class="btn add_to_project" items=".documentList" rel="#overlay">Add selected to project</button -->
+                    <button class="btn btn-default download_selected" items=".documentList"><i class="icon-arrow-down icon-white"></i> Download selected</button>
+                    <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#brochureAccordion" class="expand_all">Expand all</a>
+                    <a href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#brochureAccordion" class="collapse_all" style="display: none;">Collapse all</a>
+                </div>
+
+                <ul class="head">
+                    <li class="col0">&nbsp;</li>
+                    <li class="col1">Title</li>
+                    <li class="col2">Literature language</li>
+                    <li class="col3">Literature category</li>
+                    <li class="col4">Project type</li>
+                </ul>
+
+                <div class="documentList">
+                    <div class="accordion">
+                        <div class="optional" style="display: none;">
+                            <h2>Sound &amp; vibration</h2>
+                            <div class="sound">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                        </div>
+                        <div class="optional brochureAccordion" style="display: none;">
+                            <h2>Brochure</h2>
+                            <div class="brochures">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                        </div>
+                        <div class="optional" style="display: none;">
+                            <h2>Accessories</h2>
+                            <div class="accessories">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                        </div>
+                        <div class="optional" style="display: none;">
+                            <h2>Cases</h2>
+                            <div class="cases">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                        </div>
+                        <div class="optional" style="display: none;">
+                            <h2>Installation &amp; Operating</h2>
+                            <div class="installations">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="optional" style="display: none;">
+                            <h2>Service</h2>
+                            <div class="services">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="optional" style="display: none;">
+                            <h2>Data booklets</h2>
+                            <div class="databooklets">
+                                <table class="table-striped table-hover"><tbody></tbody></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            </div>
+            <div class="pane" id="cadPane" style="display: none;"><div id="caddrawings">
+                <div class="heading">
+                    <h3>CAD drawings</h3>
+                    <p>Select the required CAD formats by clicking the select boxes. Press Download and you will be offered a ZIP file containing the selected CAD format.</p>
+                    <label class="selectAll checkbox inline btn btn-default"><input type="checkbox" autocomplete="off"><span></span></label>
+                    <button class="btn btn-default add_to_project" items="#cadFormatsTable" rel="#overlay">Add selected to project</button>
+                    <button class="btn btn-default download_selected" items="#cadFormatsTable"><i class="icon-arrow-down icon-white"></i> Download selected</button>
+                </div>
+
+                <ul class="head">
+                    <li class="col0">&nbsp;</li>
+                    <li class="col1">CAD Format</li>
+                    <!-- li class="col2">Size</li  -->
+                </ul>
+
+                <table id="cadFormatsTable" class="table-striped table-hover"><tbody></tbody></table>
+
+                <div class="row">
+                    <div id="downloadCadGuide" class="col-md-12">
+                        <a href="javascript:void(0)">Download the Guide to CAD Drawings</a>
+                    </div>
+                </div>
+            </div>
+
+                <script type="text/javascript">
+                    caddrawings.init();
+                </script>
+            </div>
+            <div class="pane" id="systemPartsPane" style="display: none;"><!-- script src="http://twitter.github.com/hogan.js/builds/2.0.0/hogan-2.0.0.js"></script -->
+                <script type="text/javascript">
+                    $(system_parts.init);
+                </script>
+
+                <div id="system-parts">
+                    <div class="row">
+                        <div id="system-parts-header" class="col-md-12">
+                            <div class="system-parts-title-section">
+                                <h2>System parts</h2>
+                            </div>
+                            <div class="system-parts-actions">
+                                <div class="system-parts-batch col-md-8">
+                                    <div class="action-label">Batch actions:</div>
+                                    <input type="checkbox" value="...">
+                                    <div class="btn-group">
+                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="http://dkwcms04.emea.group.grundfos.com:4503/content/sol/en/products/product-detail.html?wcmmode=disabled&amp;productnumber=98389659#">
+                                            compare products
+                                            <span class="caret white-caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>other batch action</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="display-mode col-md-3">
+                                    <div class="btn-group pull-right btn-toggle" data-toggle="buttons-radio">
+                                        <button class="btn btn-default" onclick="draw_table_view()"><i class="icon-white icon-th"></i> table</button>
+                                        <button class="btn btn-default active" onclick="draw_list_view()"><i class="icon-white icon-list"></i> list</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="system-parts-contents" class="col-md-12"></div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+            <br>
+            <div class="bottom"></div>
+            </div>
+
+            <div class="center">
+                <div class="modal fade" id="configuration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 class="modal-title" id="myModalLabel">Specifications</h3>
+                            </div>
+                            <div class="modal-body">iyhiuy</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ok" data-dismiss="modal">Ok</button>
+                                <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="changedProduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 class="modal-title" id="myModalLabel">Changed product</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="same">
+                                    There are no changes to the product.
+                                </div>
+                                <div class="changed">
+                                    <p>This change in configuration will lead to a new product.</p>
+                                    Based on the changes to
+                                    <ul></ul>
+                                    <p id="newproductnumber">The new product number is <span></span></p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <p>Would you like to switch to the new peoduct page?</p>
+                                <button type="button" class="btn btn-primary ok">Ok</button>
+                                <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+                            </div>
+                            <div class="loading"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><script type="text/javascript">
+                $("#resources ul.tabs").tabs("#resources div.panes > div");
+                resources.init();
+                configuration.init();
+                $(documents.init);
+            </script>
+            </div>
+            <script type="text/javascript">
+                jQuery_1_8_1(function(){
+                    $('#product-details-title').html(product.name + ' - product no: ' + productnumber);
+                })
+            </script></div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---  END BODY    -->
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js(app) scripts/vendor.js -->
+<!-- bower:js -->
+<!--script src="bower_components/jquery/jquery.js"></script-->
+<script src="bower_components/angular/angular.js"></script>
+<!--script src="bower_components/bootstrap/dist/js/bootstrap.js"></script-->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<!--script src="scripts/controllers/main.js"></script-->
+<!--script src="scripts/controllers/navbar.js"></script-->
+<!-- endbuild -->
+</body>
+</html>

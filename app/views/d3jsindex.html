@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v1.1.4.min.js"></script>
+</head>
+<body>
+<!--script type="text/javascript">
+    var svg = dimple.newSvg("body", 800, 600);
+    var data = [
+        { "Head":1, "Flow":0 },
+        { "Head":2, "Flow":15.48952},
+        { "Head":3, "Flow":30.97905 },
+        { "Head":4, "Flow":46.46857 },
+        { "Head":5, "Flow":61.9581 },
+        { "Head":6, "Flow":77.44762 }
+    ];
+    var chart = new dimple.chart(svg, data);
+    chart.addCategoryAxis("x", "Head");
+    chart.addMeasureAxis("y", "Flow");
+    chart.addSeries(null, dimple.plot.bar);
+    chart.draw();
+</script-->
+<div id="chartContainer">
+    <script type="text/javascript">
+        var svg = dimple.newSvg("#chartContainer", 590, 400);
+
+        var data = [
+            { "Head": 1, "Flow": 0 },
+            { "Head": 2, "Flow": 15.48952},
+            { "Head": 3, "Flow": 30.97905 },
+            { "Head": 4, "Flow": 46.46857 },
+            { "Head": 5, "Flow": 61.9581 },
+            { "Head": 6, "Flow": 77.44762 }
+        ];
+        var myChart = new dimple.chart(svg, data);
+        myChart.setBounds(60, 30, 505, 305);
+        var x = myChart.addCategoryAxis("x", "Flow");
+
+        myChart.addMeasureAxis("y", "Head");
+        var s = myChart.addSeries(null, dimple.plot.line);
+        myChart.draw();
+    </script>
+</div>
+</body>
+</html>

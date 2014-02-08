@@ -1,0 +1,798 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="bower_components/nvd3/nv.d3.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap-sortable/Contents/bootstrap-sortable.css"/>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <!--link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"-->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <!--link rel="stylesheet" href="styles/responsive.css"-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/clientlib.css" type="text/css"/>
+    <!--link rel="stylesheet" href="styles/main.css"-->
+    <!-- endbuild -->
+</head>
+
+<body ng-app="replaceproductApp">
+
+<div ng-controller="MainCtrl">
+
+<div class="container">
+
+<div class="row margin-top margin-no-bottom">
+    <div class="col-md-12">
+        <div class="sf2">
+            <div class="par parsys">
+                <div class="replacement page global section">
+                    <div id="replacement">
+                        <ul id="replacement_tabs" class="nav nav-tabs" data-tabs="tabs">
+                            <li id="replacement_quick_search_tab" class='active'>
+                                <a href='#quick_search_content' data-toggle='tab'>Quick search</a>
+                            </li>
+                            <li id="replacement_classic_search_tab">
+                                <a href='#classic_search_content' data-toggle='tab'>Detail search</a>
+                            </li>
+                        </ul>
+                        <div id="replacement_tab_content" class="tab-content">
+                            <div id="quick_search_content" class="tab-pane active" style="border-bottom: 0px">
+                                <div class="panel-title"><h5>Select the product you want to replace</h5></div>
+                                <div class="row">
+                                    <div class="panel-description col-md-5">
+                                        This field will help finding the product you want to replace. Please
+                                        note - the system currently contains information about wastewater
+                                        pumps. For searches for other products please contact lorem ipsum dolor
+                                        iactetur.
+                                    </div>
+                                    <div id="replacement_quick_search" class="panel-search col-md-5">
+                                        <input type="text" id="replacement_quick_search_input"
+                                               autocomplete="off" class="form-control big-search"/>
+
+                                        <div id="replacement_suggestSelect" style="display: none"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="replacement_quick_search_button"
+                                                class="btn btn-primary btn-block big-search"
+                                                value="select this pump to replace"
+                                                ng-click="autoOpen = !autoOpen">search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="classic_search_content" class="tab-pane ">
+                                <div class="panel-title"><h5>Select the product you want to replace</h5></div>
+                                <div class="classic-panel-description">
+                                    Start by selecting the manufacturer of the pump, you want to replace. Then fill in
+                                    the other information.
+                                </div>
+
+                                <div class="panel-search">
+                                    <div class="questions">
+                                        <div class="select">
+                                            <label>Manufacturer</label><select class="form-control inline">
+                                            <option value="FLYGT" selected="selected">FLYGT</option>
+                                            <option value="KSB">KSB</option>
+                                            <option value="WILO">WILO</option>
+                                            <option value="BIRAL (Bieri, Hoval)">BIRAL (Bieri, Hoval)</option>
+                                            <option value="VORTEX">VORTEX</option>
+                                            <option value="EMB">EMB</option>
+                                            <option value="SIGMA (Intersigma)">SIGMA (Intersigma)</option>
+                                            <option value="SPECK">SPECK</option>
+                                            <option value="DAB / Circal">DAB / Circal</option>
+                                            <option value="OSCHERSLEBEN">OSCHERSLEBEN</option>
+                                            <option value="LOEWE">LOEWE</option>
+                                            <option value="ABS">ABS</option>
+                                        </select></div>
+                                        <!--div class="row"-->
+                                        <div class="col-sm-6" style="padding-left: 0px;">
+                                            <div class="select"><label>Product Name</label><select
+                                                    class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select"><label>Discharge
+                                            </label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select"><label>Motor Size, P2
+                                                length</label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select">
+                                                <label>Number of poles</label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select">
+                                                <label>Impeller Size</label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="select"><label>Impeller type</label><select
+                                                    class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select"><label>Cooling jacket</label><select
+                                                    class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select"><label>Impeller Material</label><select
+                                                    class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select">
+                                                <label>Explosion proof</label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                            <div class="select">
+                                                <label>Frequency</label><select class="form-control inline">
+                                                <option value="" selected="selected"></option>
+                                            </select></div>
+                                        </div>
+                                    </div>
+                                    </div-->
+                                </div>
+
+                                <div id="replacement_classic_search" class="panel-search"></div>
+
+                                <div id="replacement_classic_search_button_div">
+                                    <button id="replacement_classic_search_button"
+                                            class="btn btn-primary classic-search" value="select this pump to replace">
+                                        search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="sf2">
+            <div class="search-result-list-table">
+                <table class="table table-lined table-responsive sortable">
+                    <thead>
+                    <tr>
+                        <th data-label="#SYSTEM" class="clickable sorting">Product Type</th>
+                        <th data-label="PRODNO" class="clickable">Discharge &nbsp;&nbsp;</th>
+                        <th data-label="PRODNAME" class="clickable">Motor Size, P2 </br> </th>
+                        <th data-label="rStrV" class="clickable">Number of Poles  </th>
+                        <th data-label="_rStrK" class="clickable">Impeller Size</th>
+                        <th data-label="rLCC" class="clickable">Impeller Type</th>
+                        <th data-label="reta1" class="clickable">Cooling Jacket</th>
+                        <th data-label="reta1" class="clickable">Impeller Material</th>
+                        <th data-label="rFSTR" class="clickable">Explosion Proof</th>
+                        <th data-label="FlowDeviation" class="clickable">Frequency &nbsp;&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-striped">
+                    <tr>
+                        <td style="cursor: pointer;">
+                            Flygt NP
+                        </td>
+                        <td style="cursor: pointer;">
+                            DN25
+                        </td>
+                        <td style="cursor: pointer;">
+                            0.37KW
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            44
+                        </td>
+                        <td style="cursor: pointer;">
+                            Vortex
+                        </td>
+                        <td style="cursor: pointer;">
+                            No
+                        </td>
+                        <td style="cursor: pointer;">
+                            Cast Iron
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            50Hz
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;">
+                            Flygt NA
+                        </td>
+                        <td style="cursor: pointer;">
+                            DN30
+                        </td>
+                        <td style="cursor: pointer;">
+                            0.37KW
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            44
+                        </td>
+                        <td style="cursor: pointer;">
+                            Vortex
+                        </td>
+                        <td style="cursor: pointer;">
+                            No
+                        </td>
+                        <td style="cursor: pointer;">
+                            Cast Iron
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            50Hz
+                        </td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-top">
+    <div class="col-md-12">
+        <div class="sf2">
+            <div class="par parsys">
+                <div class="replacement page global section">
+                    <div id="replacement">
+                        <ul id="replacement_tabs" class="nav nav-tabs" data-tabs="tabs">
+                            <li id="replacement_quick_search_tab" class="active">
+                                <a href="#quick_search_content1" data-toggle="tab">Solutions</a>
+                            </li>
+                            <li id="replacement_classic_search_tab">
+                                <a href="#classic_search_content2" data-toggle="tab">SE1-100-100.40</a>
+                            </li>
+                            <li id="replacement_classic_search_tab">
+                                <a href="#classic_search_content2" data-toggle="tab"><span style="color: red;"
+                                                                                           class="glyphicon glyphicon-stop "></span>
+                                    SE1-100-100.50</a>
+                            </li>
+                            <li id="replacement_classic_search_tab">
+                                <a href="#classic_search_content2" data-toggle="tab">SE1-100-100.60</a>
+                            </li>
+                        </ul>
+                        <div id="replacement_tab_content" class="tab-content">
+                            <div id="quick_search_content1" style="border-bottom: 0px" class="tab-pane active">
+
+                                <div id="replacement_classic_search" class="panel-search"></div>
+                                <div id="replacement_classic_search_button_div">
+                                    <button id="replacement_classic_search_button"
+                                            class="btn btn-primary classic-search" value="select this pump to replace">
+                                        search
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="classic_search_content2" style="border-bottom: 0px" class="tab-pane">
+
+                                <!--div id="replacement_classic_search" class="panel-search"></div>
+                                <div id="replacement_classic_search_button_div">
+                                    <button id="replacement_classic_search_button"
+                                            class="btn btn-primary classic-search" value="select this pump to replace">
+                                        search
+                                    </button>
+                                </div-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-class="{'hide': !autoOpen}">
+    <div class="col-md-12">
+        <div class="sf2">
+            <div class="search-result-list-table">
+                <table class="table table-lined table-responsive sortable">
+
+                    <thead>
+                    <tr>
+                        <th style="border-right: 0px; padding:2px;"></th>
+                        <th style="border-left: 0px;" data-label="checkboxes">
+                            <label class="checkbox" style="padding: 0px;margin-top: 0px; margin-bottom: 0px;">
+                                <input type="checkbox" ng-click="show40()"><span></span></label>
+
+                        </th>
+                        <th data-label="#SYSTEM" class="clickable">Product Group</th>
+                        <th data-label="PRODNO" class="clickable">Discharge &nbsp;&nbsp;</th>
+                        <th data-label="PRODNAME" class="clickable">Motor Size, P2</th>
+                        <th data-label="rStrV" class="clickable">Number of Poles</th>
+                        <th data-label="_rStrK" class="clickable">Impeller Size</th>
+                        <th data-label="rLCC" class="clickable">Q [m³/h]</th>
+                        <th data-label="reta1" class="clickable">H [m]</th>
+                        <th data-label="rFSTR" class="clickable">Q [m³/h]</th>
+                        <th data-label="FlowDeviation" class="clickable">Adapter Required</th>
+                        <th data-label="_FHOE" class="clickable">Clearance below pump</th>
+                        <th data-label="HeadDeviation" class="clickable">Length of pump</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-striped">
+                    <tr>
+                        <!-- color 1f77b4 -->
+                        <td style="cursor: pointer; background-color:#1f77b4; border: 0px; padding:2px;">
+
+                        </td>
+                        <td>
+                            <label class="checkbox" style="padding: 0px;margin-top: 0px; margin-bottom: 0px;">
+                                <input type="checkbox" ng-click="show40()"><span></span></label>
+                        </td>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.40
+                        </td>
+                        <td style="cursor: pointer;">
+                            DN25/DN32
+                        </td>
+                        <td style="cursor: pointer;">
+                            0.37KW
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            44
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            Vortex
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: limegreen;" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: limegreen;" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+                    <tr>
+                        <!-- color 1f77b4 -->
+                        <td style="cursor: pointer; background-color:#1f77b4; border: 0px; padding:2px;">
+
+                        </td>
+                        <td>
+                            <label class="checkbox" style="padding: 0px;margin-top: 0px; margin-bottom: 0px;">
+                                <input type="checkbox" ng-click="show40()"><span></span></label>
+                        </td>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.50
+                        </td>
+                        <td style="cursor: pointer;">
+                            DN25/DN32
+                        </td>
+                        <td style="cursor: pointer;">
+                            0.37KW
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            44
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            Vortex
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: red;" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: red;" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <!-- color 1f77b4 -->
+                        <td style="cursor: pointer; background-color:#1f77b4; border: 0px; padding:2px;">
+
+                        </td>
+                        <td>
+                            <label class="checkbox" style="padding: 0px;margin-top: 0px; margin-bottom: 0px;">
+                                <input type="checkbox" ng-click="show40()"><span></span></label>
+                        </td>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.60
+                        </td>
+                        <td style="cursor: pointer;">
+                            DN25/DN32
+                        </td>
+                        <td style="cursor: pointer;">
+                            0.37KW
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            44
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            9.5
+                        </td>
+                        <td style="cursor: pointer;">
+                            Vortex
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: orange" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+                        <td style="cursor: pointer;">
+                            <span style="color: orange;" class="glyphicon glyphicon-stop "></span>
+                            Higher
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-bottom" ng-class="{'hide': !autoOpen}">
+    <div class="col-md-12">
+        <!--div class="sf2"-->
+
+        <div id="images" class="panes" ng-class="{'hide': !autoOpen}">
+            <!--div id="graphicContent" style="left: 180px">
+                <div id="imageContainer" style="position:static"-->
+            <!--div id="graphicContent"-->
+            <div id="imageContainer">
+
+                <nvd3-line-chart
+                        data="chartData"
+                        id="functionExample"
+                        width="950"
+                        height="522"
+                        showXAxis="true"
+                        showYAxis="true"
+                        tooltips="true"
+                        interactive="true"
+                        showLegend="true"
+                        transitionduration="2000"
+                        interpolate="basis"
+                        margin="{left:50,top:50,bottom:50,right:50}"
+                        >
+                    <svg></svg>
+                </nvd3-line-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-class="{'hide': autoOpen}">
+    <div class="col-md-12">
+        <div class="sf2">
+            <div class="search-result-list-table">
+                <table class="table table-lined table-responsive sortable">
+                    <thead>
+                    <tr>
+                        <th data-label="#SYSTEM" class="clickable">Product Name &nbsp;&nbsp;</th>
+                        <th data-label="PRODNO" class="clickable">Product Number</th>
+                        <th data-label="PRODNAME" class="clickable">Voltage [V] &nbsp;</th>
+                        <th data-label="rStrV" class="clickable">Cooling Jacket</th>
+                        <th data-label="_rStrK" class="clickable">Explosion Proof</th>
+                        <th data-label="rLCC" class="clickable">Cable Length</th>
+                        <th data-label="reta1" class="clickable">Motor Protection</th>
+                        <th data-label="rFSTR" class="clickable">Leakage Sensor</th>
+                        <th data-label="FlowDeviation" class="clickable">Impeller Material</th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-striped">
+                    <tr>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.40
+                        </td>
+                        <td style="cursor: pointer;">
+                            72345677
+                        </td>
+                        <td style="cursor: pointer;" class="no-wrap">
+                            400-415 / 660-690
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            10m
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            Cast Iron
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.40
+                        </td>
+                        <td style="cursor: pointer;">
+                            72345678
+                        </td>
+                        <td style="cursor: pointer;" class="no-wrap">
+                            400-415 / 660-690
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            10m
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            Cast Iron
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer;">
+                            SE1.100.100.40
+                        </td>
+                        <td style="cursor: pointer;">
+                            72345679
+                        </td>
+                        <td style="cursor: pointer;" class="no-wrap">
+                            400-415 / 660-690
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            10m
+                        </td>
+                        <td style="cursor: pointer;">
+                            2
+                        </td>
+                        <td style="cursor: pointer;">
+                            Yes
+                        </td>
+                        <td style="cursor: pointer;">
+                            Plastic
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row margin-no-bottom" ng-class="{'hide': autoOpen}">
+
+    <div class="col-md-12">
+
+
+        <div class="sf2 detail">
+
+            <div class="par parsys">
+
+                <div id="resources">
+
+                    <div class="panes" style="border-bottom: 0px">
+
+
+                        <div class="pane" id="productdataPane" style="display: block;">
+                            <div class="heading">
+                                <button id="changeConfiguration" class="btn btn-success" style="margin: 0px 0;">Open in
+                                    CAPS
+                                </button>
+                                <h1>SE1.100.100.40 - 72345677 </h1>
+
+                            </div>
+                            <div class="row">
+                                <div id="specifications">
+                                    <div class="col-sm-6">
+                                    </div>
+                                    <br style="clear:both;"></div>
+                            </div>
+                            <div id="markings"></div>
+                            <div class="alert alert-success" style="margin-bottom: 0px">Adaptor not needed</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row margin-bottom" ng-class="{'hide': autoOpen}"> <!--ng-class="{'hide': !autoOpen}"-->
+    <div class="col-md-12">
+        <!--div class="sf2"-->
+        <div class="popover top">
+            <div class="arrow"></div>
+            <h3 class="popover-title">Popover top</h3>
+
+            <div class="popover-content">
+                <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+                    venenatis vestibulum.</p>
+            </div>
+        </div>
+
+        <div id="images" class="panes" style="height:700px;"> <!-- ng-class="{'hide': !autoOpen}"-->
+            <!--div id="graphicContent" style="left: 180px">
+                <div id="imageContainer" style="position:static"-->
+            <!--div id="graphicContent"-->
+            <!--div id="imageContainer" style="background: transparent url(/images/dimdrawing.png);"-->
+            <!--div id="imageContainer">
+                <img src="/images/dimdrawing.png">
+            </div-->
+
+            <div style="background: transparent url(/images/dimdrawing.png) no-repeat left top; width: 100%; height:700px">
+                <div class="popover" style="border: 0px;top: 30px; left: 655px; display: block; ">
+                    <!--div class="arrow"></div-->
+                    <div class="popover-inner">
+                        <h3 class="popover-title">Length of pump</h3>
+
+                        <div class="popover-content">
+                            <div class="sf2">
+                                <div class="search-result-list-table">
+                                    <table class="table table-lined table-striped" style="margin-bottom: 8px;">
+                                        <tbody>
+                                        <tr>
+                                            <th data-label="#SYSTEM">FLYGT</th>
+                                            <th data-label="PRODNO">SE1.100.100.40</th>
+                                            <th data-label="PRODNO">Difference</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                250mm
+                                            </td>
+                                            <td>
+                                                325mm
+                                            </td>
+                                            <td>
+                                                34mm
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popover" style="border: 0px; top:535px; left: 655px; display: block;">
+                    <!--div class="arrow"></div-->
+                    <div class="popover-inner">
+                        <h3 class="popover-title">Clearance below pump</h3>
+
+                        <div class="popover-content">
+                            <div class="sf2">
+                                <div class="search-result-list-table">
+                                    <table class="table table-lined table-striped" style="margin-bottom: 8px;">
+                                        <tbody>
+                                        <tr>
+                                            <th data-label="#SYSTEM">FLYGT</th>
+                                            <th data-label="PRODNO">SE1.100.100.40</th>
+                                            <th data-label="PRODNO">Difference</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                100mm
+                                            </td>
+                                            <td>
+                                                125mm
+                                            </td>
+                                            <td style="color:red">
+                                                -1mm
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js(app) scripts/vendor.js -->
+<!-- bower:js -->
+<!--script src="bower_components/jquery/jquery.js"></script-->
+<script src="bower_components/angular/angular.js"></script>
+<!--script src="bower_components/bootstrap/dist/js/bootstrap.js"></script-->
+
+<script src="bower_components/bootstrap/js/tab.js"></script>
+<script src="bower_components/bootstrap/js/tooltip.js"></script>
+<script src="bower_components/bootstrap/js/popover.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/d3/d3.js"></script>
+<script src="bower_components/nvd3/nv.d3.js"></script>
+<script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+<script src="bower_components/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+<script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/navbar.js"></script>
+<!-- endbuild -->
+</body>
+</html>
